@@ -1,0 +1,7 @@
+sending incremental file list
+./
+new_file.log
+test_file_1.txt
+
+sent 276 bytes  received 57 bytes  666.00 bytes/sec
+total size is 106  speedup is 0.32
