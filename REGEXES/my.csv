@@ -1,0 +1,11 @@
+id,name,description,participants
+   1,"test1","description test 1","Frank,Tom,Dennis"
+2,"test2",    "description test 2","Julia,Frank,Tim"
+3,"test2",    "description test 3","Dennis.Jamie,Jim"
+4,"test2","description test 4","Tom,Tim,Frank,Julia"
+5,"test2","description test 5","Mike,Tom,Jamie"
+6,"test2","description test 6","John,Mike,Frank"
+7,"test2","description test 7","Julia,Ann,Dennis,Tom"
+8,"test2","description test 8","Frank,Jamie"
+9,"test2","description test 9",   "Ann,Tim"
+

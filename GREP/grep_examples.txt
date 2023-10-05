@@ -1,0 +1,25 @@
+# Examples how to use grep to FILE: greptest
+# https://www.youtube.com/watch?v=ynOwWG_yb0o&list=PLNlxfQ7JYooHd_Ptnzxlc8JWdTczNpUR0&index=4
+
+
+# lines with word bar
+grep bar greptest
+
+# lines without word bar
+grep -v bar greptest
+
+# search recursively
+grep -r list grepfolder/
+
+grep -r 'list of' grepfolder/
+lasse@DESKTOP-S2JLDIN:~/BashScripts_WSL2/GREP$ grep -r 'list of' grepfolder/
+grepfolder/number_list.py:#Create a list of numbers
+
+# tells also the line number
+grep -rn list of grepfolder/
+
+# search with multiple words
+grep -rn -e 'list of' -e youtube grepfolder/
+grep -rn -e 'list of' -e youtube -e sum grepfolder/
+
+

@@ -1,0 +1,162 @@
+# Some examples using regex in Linux
+# https://www.youtube.com/watch?v=uVJpq_Tq-fE&list=PLNlxfQ7JYooHd_Ptnzxlc8JWdTczNpUR0
+
+1. matching line beginning
+2. quantifiers
+3. grouping
+4. character classes
+5. backreferences
+
+1) Matching line beginning
+
+# print line having at least one a
+cat sedfile | egrep -E 'a'
+
+# print line having at least two a'
+cat sedfile | egrep -E 'aa'
+
+# print line having just two a'
+cat sedfile | egrep -E '^aa$'
+
+# two a in the beginning of the line
+cat sedfile | egrep -E '^aa'
+
+# two a in the end of the line
+cat sedfile | egrep -E 'aa$'
+
+2) Qauntifiers
+
+# lines with one a & empty lines
+cat sedfile | egrep -E '^a?$'
+
+# lines with only one a, starting with a
+cat sedfile | egrep -E '^a$'
+
+# lines starting with ab
+cat sedfile | egrep -E '^ab'
+
+# lines having only a
+cat sedfile | egrep -E '^a+$'
+
+# lines having a
+cat sedfile | egrep -E '^a+'
+
+# lines having only three a, two first a are optional, last a is compulsary
+cat sedfile | egrep -E '^aaa+$'
+
+# lines having two optional a and one optional a
+cat sedfile | egrep -E '^aaa?$'
+
+# lines having two optional a and one optional a z
+cat sedfile | egrep -E '^aaa*$'
+
+# lines having two optional a and one compulsary a, so giving lines with at least three a
+cat sedfile | egrep -E '^aaa+$'
+
+# two optional a and one compulsary b
+cat sedfile | egrep -E '^aab+$'
+
+# two optional a and one optional b
+cat sedfile | egrep -E '^aab*$'
+
+3) Grouping
+
+# either line with two a or two b
+cat sedfile | egrep -E '^(aa|bb)$'
+
+4) Character classe
+
+# chars which are valid for the position (fitst char in the line)
+cat sedfile | egrep -E '^[abcdef]$'
+
+# lines with b's
+cat sedfile | egrep -E '^[bcdef]+$'
+
+# lines with ab' not empty lines
+cat sedfile | egrep -E '^[abcdef]+$'
+
+# lines with ab' and lines
+cat sedfile | egrep -E '^[abcdef]*$'
+
+# predefined char classes
+cat sedfile | egrep -E '^[[:space:]]*$'
+
+# if file is having a line 3 to 6 spaces
+cat sedfile | egrep -E '^[[:space:]]{3,6}$'
+
+# if file is having a line 2 or more spaces
+cat sedfile | egrep -E '^[[:space:]]{2,}$'
+
+# if file is having a line up to 3 spaces also the emty lines with no spaces
+cat sedfile | egrep -E '^[[:space:]]{,3}$'
+
+# if file is having a line 1 or more spaces (not empty lines)
+cat sedfile | egrep -E '^[[:space:]]{1,3}$'
+
+# a sequence consisting 3 or more a's or b's
+cat sedfile | egrep -E '^[ab]{3,}$'
+
+# lines not having ab's -> line with 3 spaces & line with ccc
+cat sedfile | egrep -E '^[^ab]+$'
+
+# line staring with ab no chars after
+cat sedfile | egrep -E '^ab+$'
+
+# lines not starting or ending with spaces
+cat sedfile | egrep -E '^[^[:space:]]+$'
+
+# Example with my.csv (with extra spaces added)
+cat my.csv
+
+cat my.csv | sed -r 's/[[:space:]]+//g'
+
+# replace Frank or Ann with -> NOTE:[name]
+cat my.csv | sed -r -e 's/[[:space:]]+//g' -e 's/(Frank|Ann)/NOTE:\1/g'
+
+# replace T.m with -> NOTE:[name], dot (.) any char
+cat my.csv | sed -r -e 's/[[:space:]]+//g' -e 's/(T.m)/NOTE:\1/g'
+cat my.csv | sed -r -e 's/[[:space:]]+//g' -e 's/(T[io]m)/NOTE:\1/g'
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

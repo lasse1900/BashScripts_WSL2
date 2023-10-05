@@ -1,0 +1,44 @@
+# Here's some examples how to use sed
+# https://www.youtube.com/watch?v=uVJpq_Tq-fE&list=PLNlxfQ7JYooHd_Ptnzxlc8JWdTczNpUR0
+
+# d = delete
+cat my.csv | sed -r '2,4d' 
+
+# p = print
+cat my.csv | sed -n -r '2,4p'
+
+# don't print lines with Frank
+cat my.csv | sed -r '/Frank/d'
+
+
+# print lines with Frank
+# negatiation to former, print only the lines with Frank
+cat my.csv | sed -n -r '/Frank/p'
+cat my.csv | grep Frank
+
+# replace Frank with Wayne
+cat my.csv | sed -r 's/Frank/Wayne/'
+
+# replace test with nothing
+cat my.csv | sed -r 's/test/nothing/'
+
+# replace test with nothing globally
+cat my.csv | sed -r 's/test/nothing/g'
+
+# replace test with nothing globally case insensitive
+cat my.csv | sed -r 's/TEST/nothing/gi'
+
+# removal, leaving replacement empty
+cat my.csv | sed -r 's/TEST//gi'
+
+# substitutions only on lines 2..4
+cat my.csv | sed -r '3,5 s/TEST/nothing/gi'
+
+# substitutions on lines 3 +3 more
+cat my.csv | sed -r '3,+3 s/TEST/nothing/gi'
+
+# substitutions until the end
+cat my.csv | sed -r '3,$ s/TEST/nothing/gi'
+
+
+
