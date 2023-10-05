@@ -1,0 +1,6 @@
+This is the first line of an example text file
+This is 2nd line of myfile.txt
+This is 3th line of myfile.txt
+Hello, world!
+
+
