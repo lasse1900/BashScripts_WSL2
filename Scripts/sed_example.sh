@@ -1,6 +1,6 @@
-!/bin/bash
+#!/bin/bash
 
-phrase="myfile"
+phrase="extract"
 
 sed -n "/$phrase/p" myfile.txt
 

@@ -1,7 +1,7 @@
 
-phrase="Hello, world!"
+phrase="another"
 
-line_number=4
+line_number=2
 
 sed -n "${line_number}p" myfile.txt | grep "$phrase"
 
